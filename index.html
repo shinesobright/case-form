@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
 
-<title>Student Admission Form</title>
+<title>Institute Enquiry / Student Request</title>
 
 <style>
     body {
@@ -49,6 +49,7 @@
     }
 
     input[type="text"],
+    textarea,
     select {
         width: 100%;
         padding: 8px;
@@ -56,6 +57,11 @@
         border: 1px solid #bbb;
         border-radius: 5px;
         font-family: "Times New Roman", serif;
+    }
+
+    textarea {
+        resize: vertical;
+        height: 80px;
     }
 
     input[type="submit"] {
@@ -88,18 +94,22 @@ SCHOOL OF COMPUTER SCIENCE ENGINEERING
 GOVT. COLLEGE DHARAMSHALA
 </div>
 
-<h2>Student Admission Form</h2>
+<h2>Institute Enquiry / Student Request</h2>
 
-<form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DgK00000JIamr" method="POST">
+<form action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=00DgK00000JIamr" method="POST">
 
-<input type="hidden" name="oid" value="00DgK00000JIamr">
+<input type="hidden" name="orgid" value="00DgK00000JIamr">
 <input type="hidden" name="retURL" value="http://">
 
-<label for="first_name">First Name</label>
-<input id="first_name" name="first_name" type="text" maxlength="40">
+<label for="recordType">Case Type</label>
+<select id="recordType" name="recordType">
+    <option value="">--None--</option>
+    <option value="012gK000003dnLh">Enquiry</option>
+    <option value="012gK000003dmnr">Student Request</option>
+</select>
 
-<label for="last_name">Last Name</label>
-<input id="last_name" name="last_name" type="text" maxlength="80">
+<label for="name">Contact Name</label>
+<input id="name" name="name" type="text" maxlength="80">
 
 <label for="email">Email</label>
 <input id="email" name="email" type="text" maxlength="80">
@@ -107,24 +117,25 @@ GOVT. COLLEGE DHARAMSHALA
 <label for="phone">Phone</label>
 <input id="phone" name="phone" type="text" maxlength="40">
 
-<label for="city">City</label>
-<input id="city" name="city" type="text" maxlength="40">
-
-<label for="state_code">State / Province</label>
-<select id="state_code" name="state_code">
+<label for="reason">Case Reason</label>
+<select id="reason" name="reason">
     <option value="">--None--</option>
-    <option value="HP">Himachal Pradesh</option>
-    <option value="DL">Delhi</option>
-    <option value="MH">Maharashtra</option>
+    <option value="Installation">Installation</option>
+    <option value="Equipment Complexity">Equipment Complexity</option>
+    <option value="Performance">Performance</option>
+    <option value="Breakdown">Breakdown</option>
+    <option value="Equipment Design">Equipment Design</option>
+    <option value="Feedback">Feedback</option>
+    <option value="Other">Other</option>
 </select>
 
-<label for="country_code">Country</label>
-<select id="country_code" name="country_code">
-    <option value="">--None--</option>
-    <option value="IN">India</option>
-</select>
+<label for="subject">Subject</label>
+<input id="subject" name="subject" type="text" maxlength="80">
 
-<input type="submit" name="submit" value="Apply for Admission">
+<label for="description">Description</label>
+<textarea id="description" name="description"></textarea>
+
+<input type="submit" name="submit" value="Submit Request">
 
 </form>
 
